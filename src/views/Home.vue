@@ -6,6 +6,7 @@
     <OurGallery></OurGallery>
     <Envelope id="envelope"></Envelope>
     <GuestBook id="guest-book"></GuestBook>
+    <End id="end"></End>
   </section>
 </template>
 
@@ -17,6 +18,7 @@ import Timelines from '@/components/Timelines.vue'
 import OurGallery from '@/components/OurGallery.vue'
 import Envelope from '@/components/Envelope.vue'
 import GuestBook from '@/components/GuestBook.vue'
+import End from '@/components/End.vue'
 
 // Navigation handler
 const navigationHandler = id => {

@@ -43,7 +43,7 @@
         <!-- Submit Button -->
         <button 
           data-aos="zoom-in"
-          class="w-full bg-gray-800 text-gray-100 mt-6 rounded-lg py-3 font-medium cursor-pointer active:scale-95 hover:border hover:border-gray-500 hover:bg-gray-100 hover:text-green-500 duration-300" 
+          class="w-full bg-amber-800 text-orange-100 mt-6 rounded-lg py-3 font-medium cursor-pointer active:scale-95 hover:border hover:border-orange-500 hover:bg-orange-100 hover:text-green-500 duration-300" 
           type="submit">
           <i class="fa fa-paper-plane mr-1"></i>
           Kirim pesan
@@ -151,11 +151,11 @@ onMounted(() => {
 }
 
 label {
-  @apply text-gray-800 font-medium text-sm;
+  @apply text-orange-800 font-medium text-sm;
 }
 
 input, textarea, select {
-  @apply w-full px-3 py-3 rounded-lg bg-gray-800 border border-gray-200 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-200 text-white placeholder:text-gray-400 transition duration-300;
+  @apply w-full px-3 py-3 rounded-lg bg-gray-800 border border-orange-200 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-200 text-white placeholder:text-orange-400 transition duration-300;
 }
 
 textarea {

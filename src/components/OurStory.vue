@@ -1,41 +1,52 @@
 <template>
-  <section class="w-full">
+  <section class="w-full bg-gradient-to-b from-orange-100 to-orange-50">
     <section class="container-section">
       <HeaderSection title="Kisah Cinta Kami" />
-      <div class="mt-6">
-        <Card>
-          <template v-slot:body>
-            <template v-for="(story, x) in stories" :key="x">
-              <div 
-                data-aos="zoom-in"
-                class="w-10/12 text-center text-sm p-4 mx-auto mb-4">
-                <decoration class="w-2/12 mx-auto fill-amber-500"></decoration>
-                <p class="satisfy-font text-3xl text-amber-500 text-xl">{{ story.title }}</p>
-                <p class="font-medium mb-0">{{ story.place }}</p>
-                <p class="text-justify">{{ story.description }}</p>
+      
+      <div class="mt-8 px-4">
+        <!-- Stories Bubbles -->
+        <div class="w-full max-w-3xl mx-auto">
+          <template v-for="(story, x) in stories" :key="x">
+            <!-- Chat Bubble Item -->
+            <div data-aos="fade-up" class="mb-16 relative">
+              <!-- Title Pill at top -->
+              <div class="absolute -top-4 left-4 z-10 bg-orange-200 text-gray-800 text-sm font-semibold px-4 py-2 rounded-xl shadow-sm">
+                {{ story.title }}
               </div>
-            </template>
+              
+              <!-- Content Bubble -->
+              <div class="bg-orange-300 rounded-2xl p-6 pt-10 shadow-sm">
+                <p v-if="story.place" class="font-medium mb-3 text-center">{{ story.place }}</p>
+                <p class="text-gray-800 leading-relaxed text-justify text-sm">{{ story.description }}</p>
+              </div>
+            </div>
           </template>
-          <template v-slot:footer><img src="@/assets/images/couples.png" alt=""></template>
-        </Card>
+          
+          <!-- Footer Image -->
+          <div class="flex justify-center mt-12 mb-8">
+            <img src="@/assets/images/couples.png" alt="Couple" class="w-48 opacity-90" />
+          </div>
+        </div>
       </div>
     </section>
   </section>
 </template>
 
 <script setup>
-
 import axios from 'axios'
 import { ref, onMounted } from 'vue'
 import HeaderSection from '@/components/HeaderSection.vue'
-import Card from '@/components/Card.vue'
-import decoration from '@/assets/svg/decoration-2.svg'
 
 const stories = ref(null)
 onMounted(() => {
   axios.get('contents/story.json')
-    .then( res => stories.value = res.data.stories )
-    .catch( err => alert(err) )
+    .then(res => stories.value = res.data.stories)
+    .catch(err => alert(err))
 })
-
 </script>
+
+<style scoped>
+.satisfy-font {
+  font-family: 'Satisfy', cursive;
+}
+</style>
