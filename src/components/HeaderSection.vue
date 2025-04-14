@@ -15,10 +15,7 @@ const props = defineProps({
     type: String,
     default: 'The Section'
   }, 
-  subtitle: {
-    type: String,
-    default: 'Duis splople autem vel eum iriure Dapibus sit amet, tincidunt eu, nibh.'
-  },
+  
   textColor: {
     type: String,
     default: 'text-slate-800'

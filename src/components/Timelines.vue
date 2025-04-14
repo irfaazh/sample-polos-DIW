@@ -7,28 +7,28 @@
 </style>
 
 <template>
-  <section class="w-full bg-gradient-to-b from-gray-700 to-gray-600">
+  <section class="w-full bg-gradient-to-b from-orange-50 to-orange-100">
     <section class="container-section pb-12">
-      <HeaderSection text-color="text-gray-100" subtitle="Dengan tidak mengurangi rasa hormat, kami mengajak para tamu undangan agar bisa berhadir pada serangkaian acara kami" title="Runtutan Acara"></HeaderSection>
+      <HeaderSection text-color="text-amber-800" subtitle="Dengan tidak mengurangi rasa hormat, kami mengajak para tamu undangan agar bisa berhadir pada serangkaian acara kami" title="Runtutan Acara"></HeaderSection>
       <Card>
         <template v-slot:body>
-          <div class="bg-gray-900 px-6 py-8 text-center text-sm font-medium" v-for="(timeline, index) in timelines" :key="index">
+          <div class="bg-amber-800 px-6 py-8 text-center text-sm font-medium" v-for="(timeline, index) in timelines" :key="index">
             <section data-aos="fade-up">
               <h1 class="text-xl satisfy-font text-amber-400">{{ timeline.title }}</h1>
-              <p class="font-medium text-gray-100">{{ timeline.date }} | {{ timeline.time }}</p>
-              <decoration class="w-2/12 mx-auto my-2 fill-amber-500"></decoration>
+              <p class="font-medium text-amber-800">{{ timeline.date }} | {{ timeline.time }}</p>
+              <decoration class="w-2/12 mx-auto my-2 fill-amber-400"></decoration>
               <p class="text-amber-500">{{ timeline.location }}</p>
               <p class="text-gray-200">{{ timeline.address }}</p>
               <a class="btn" href="">
                 <i class="fa-solid fa-map"></i>
                 Lihat Peta
               </a>
-              <decoration class="w-2/12 mx-auto my-2 fill-amber-500 rotate-180"></decoration>
+              <decoration class="w-2/12 mx-auto my-2 fill-amber-400 rotate-180"></decoration>
             </section>
           </div>
         </template>
         <template v-slot:footer>
-          <section class="bg-gray-900">
+          <section class="bg-amber-800">
             <Countdown></Countdown>
             <!-- Button to Guest Book -->
             <div class="px-6 pt-5 pb-8 text-center">

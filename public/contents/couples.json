@@ -1,26 +1,20 @@
 {
 	"couples": [
 		{
-			"name": "Fulan bin Fulan",
+			"name": "Moch. Akmal Abdullah",
 			"sosmed": [
-				{ "icon": "fab fa-instagram", "link": "http://fake.com" },
-				{ "icon": "fab fa-facebook", "link": "http://fake.com" },
-				{ "icon": "fab fa-twitter", "link": "http://fake.com" }
+				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/aabduulllaaahh" }
 			],
-			"parents": ["Fulan", "Fulanah"],
-			"thumb": "/couples/couple-male.jpg",
-			"address": "Komplek Setia Budi Sentosa Blok 12A Nomor 6 Gang Serunai Asri - Brebes, Jawa Timur"
+			"parents": ["Ihak Syarifudin", "Rika Solaeha"],
+			"thumb": "/couples/couple-male.jpg"
 		},
 		{
-			"name": "Fulanah binti Fulan",
+			"name": "Reva Hamidah",
 			"sosmed": [
-				{ "icon": "fab fa-instagram", "link": "http://fake.com" },
-				{ "icon": "fab fa-facebook", "link": "http://fake.com" },
-				{ "icon": "fab fa-twitter", "link": "http://fake.com" }
+				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/haimidah22" }
 			],
-			"parents": ["Fulan", "Fulanah"],
-			"thumb": "/couples/couple-female.jpg",
-			"address": "Komplek Setia Budi Sentosa Blok 12A Nomor 6 Gang Serunai Asri - Brebes, Jawa Timur"
+			"parents": ["Alm. Ngaspan", "Alis Farida"],
+			"thumb": "/couples/couple-female.jpg"
 		}
 	]
 }

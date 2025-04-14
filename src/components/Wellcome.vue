@@ -67,8 +67,8 @@ import { useState } from '@/stores/state.js'
 
 const state = useState()
 
-const couples = ref(['Fulan', 'Fulanah'])
-const weddingDate = ref('Ahad, 27 Mei 2022')
+const couples = ref(['Akmal', 'Reva'])
+const weddingDate = ref('Selasa, 09 September 2025')
 
 const isOpenInvitation = ref(false)
 

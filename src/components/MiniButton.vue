@@ -1,12 +1,12 @@
 <style scoped>
 
 .button {
-  @apply bg-gray-600 bg-opacity-50 backdrop-blur-sm border border-gray-700 rounded-full text-lg grid place-items-center left-3 text-amber-400 z-50 mb-2;
+  @apply bg-amber-800 bg-opacity-50 backdrop-blur-sm border border-amber-700 rounded-full text-lg grid place-items-center left-3 text-amber-400 z-50 mb-2;
   height: 40px;
   width: 40px;
 } 
 
-</style>>
+</style>
 
 <template>
   <audio ref="audioEl" autoplay>

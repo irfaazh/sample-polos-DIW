@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-slate-100">
+  <section class="w-full bg-gradient-to-b from-orange-100 to-orange-50">
     <section class="w-full px-0">
       <viewer :images="galleries">
         <div class="flex flex-wrap">

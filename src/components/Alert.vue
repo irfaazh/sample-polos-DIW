@@ -7,7 +7,7 @@
       {{ statusResponse ? 'Pesan berhasil terkirim' : 'Pesan gagal dikirimkan' }}
     </div>
     <button 
-      @click="emits('close')" class="px-1 w-2/12 grid place-items-center border border-gray-600 rounded-lg">
+      @click="emits('close')" class="px-1 w-2/12 grid place-items-center border border-amber-600 rounded-lg">
       <i class="fa fa-times"></i>
     </button>
   </section>

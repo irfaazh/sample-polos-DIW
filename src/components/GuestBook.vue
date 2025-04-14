@@ -1,39 +1,30 @@
-<style scoped>
-
-.frame {
-  @apply w-4/12 rotate-180;
-}
-
-.input-wrapper {
-  @apply w-full flex flex-wrap gap-1 mb-3;
-}
-
-label {
-  @apply w-full text-gray-600 font-medium;
-}
-
-input, textarea, select, option {
-  @apply w-full px-2 py-3 rounded-lg bg-gray-800 border border-gray-100 shadow-lg duration-300 focus:border-gray-500 text-gray-200 placeholder:text-gray-400;
-}
-
-</style>
-
 <template>
-  <section class="w-full bg-slate-100 pt-5">
-    <section class="container-section bg-slate-100">
-      <HeaderSection title="Buku Tamu" subtitle="Demi kelancaran acara dimohon untuk para tamu undangan untuk memastikan kehadirannya pada acara kami" />
+  <section class="w-full bg-gradient-to-b from-orange-100 to-orange-50 pt-5 pb-8">
+    <!-- Form Section -->
+    <section class="container-section bg-gradient-to-b from-orange-50 to-orange-100 p-5 rounded-lg shadow-md mx-auto w-11/12 max-w-md">
+      <!-- Header dengan ornamen -->
+      <div class="text-center mb-6">
+        <!-- <div class="ornament-container mb-2">
+          <img src="/api/placeholder/64/40" alt="Ornament" class="w-16 mx-auto">
+        </div> -->
+        <h1 class="satisfy-font text-4xl font-medium mb-5 text-amber-600">Buku Tamu</h1>
+        <p class="text-sm text-gray-600 mt-2">Demi kelancaran acara dimohon untuk para tamu undangan untuk memastikan kehadirannya pada acara kami</p>
+      </div>
+      
       <!-- Form -->
       <form 
         ref="form"
         @submit="sendMessage"
-        class="w-10/12 mx-auto mt-6">
+        class="w-full mx-auto">
         <!-- Alert -->
-        <Alert :statusResponse="statusResponse" :showAlert="showAlert" v-on:close="showAlert = false" />
+        <Alert v-if="showAlert" :statusResponse="statusResponse" :showAlert="showAlert" v-on:close="showAlert = false" />
+        
         <!-- Guest Name -->
         <div class="input-wrapper" data-aos="zoom-in">
           <label for="GuestName">Nama</label>
           <input v-model="GuestName" placeholder="Nama lengkap anda" name="GuestName" id="GuestName" type="text" required>
         </div>
+        
         <!-- Guest Status -->
         <div class="input-wrapper" data-aos="zoom-in">
           <label for="GuestStatus">Kehadiran</label>
@@ -42,65 +33,70 @@ input, textarea, select, option {
             <option value="Tidak Hadir">Tidak Hadir</option>
           </select>
         </div>
+        
         <!-- Guest Message -->
         <div class="input-wrapper" data-aos="zoom-in">
           <label for="GuestMessage">Pesan</label>
           <textarea placeholder="Tuliskan pesan anda disini" v-model="GuestMessage" name="GuestMessage" id="GuestMessage" cols="30" rows="5" required></textarea>
         </div>
-        {{ query }}
-        <!-- Submit -->
+        
+        <!-- Submit Button -->
         <button 
           data-aos="zoom-in"
-          class="w-full bg-gray-800 text-gray-100 mt-6 rounded-lg py-2 font-medium pointer active:scale-90 hover:border border-gray-500 hover:bg-gray-100 hover:text-green-500 duration-300" type="submit">
+          class="w-full bg-gray-800 text-gray-100 mt-6 rounded-lg py-3 font-medium cursor-pointer active:scale-95 hover:border hover:border-gray-500 hover:bg-gray-100 hover:text-green-500 duration-300" 
+          type="submit">
           <i class="fa fa-paper-plane mr-1"></i>
           Kirim pesan
         </button>
       </form>
-      <!-- Gift Section -->
-      <Gift></Gift>
-      <!-- Message Box -->
-      <!--MessagesBox :messages="messages" -->
-      <!-- Frames -->
-      <div class="w-full text-center pb-12 mt-12">
-        <p class="text-sm text-amber-600 font-medium">Diundang &copy; 2022</p>
-      </div>
     </section>
+    
+    <!-- Messages Section -->
+    <MessagesBox :messages="messages" />
   </section>
 </template>
 
 <script setup>
-
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import axios from 'axios'
-import HeaderSection from '@/components/HeaderSection.vue'
 import Alert from '@/components/Alert.vue'
-//import Gift from '@/components/Gift.vue'
+import MessagesBox from '@/components/MessagesBox.vue'
 
 // Form handler
 const form = ref(null)
-const GuestName = ref(null)
-const GuestMessage= ref(null)
+const GuestName = ref('')
+const GuestMessage = ref('')
 const GuestStatus = ref('Hadir')
 
 // Alert handler
 const statusResponse = ref(false)
 const showAlert = ref(false)
 
-//URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbzPgWJ7760OwwRlvjhrBMSM9HTVJL2wjDnDB3Up9ZOEIm09LMBwpmSpkQ6eGjAPGPCH/exec"
-const sendMessage = ( evt ) => {
+// Messages data
+const messages = ref([])
+
+// Google Script URL
+const scriptURL = "https://script.google.com/macros/s/AKfycbzrE11My5dfOO7WwjwMbyjMsVuyo1osZa8vYiFJxP16CyMNXEZNjVjkqmq8YGRpUt8v/exec"
+
+// Send message function
+const sendMessage = (evt) => {
   evt.preventDefault()
   
-  setTimeout( () => {
+  setTimeout(() => {
     // Post form
     fetch(scriptURL, { method: 'POST', body: new FormData(form.value)})
-      .then( res => {
+      .then(res => {
         console.log('Success: ', res)
         statusResponse.value = true
         showAlert.value = true
-       })
-      .catch( err => {
+        // Refresh messages after successful submission
+        fetchMessages()
+        // Reset form
+        GuestName.value = ''
+        GuestMessage.value = ''
+        GuestStatus.value = 'Hadir'
+      })
+      .catch(err => {
         console.log('Error: ', err)
         statusResponse.value = false
         showAlert.value = true
@@ -108,8 +104,74 @@ const sendMessage = ( evt ) => {
   }, 500)
 }
 
+// Fetch messages function
+const fetchMessages = async () => {
+  try {
+    const res = await fetch(scriptURL)
+    const data = await res.json()
+    messages.value = data.reverse() // Display newest first
+  } catch (error) {
+    console.error('Error fetching messages:', error)
+  }
+}
+
 // Auto fill guest name with route.query
 const route = useRoute()
-if ( route.query.to ) GuestName.value = route.query.to
+if (route.query.to) GuestName.value = route.query.to
 
+// Fetch messages on component mount
+onMounted(() => {
+  fetchMessages()
+})
 </script>
+
+<style scoped>
+.font-script {
+  font-family: 'Playfair Display', serif;
+}
+
+.container-section {
+  max-width: 500px;
+}
+
+.ornament-container {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ornament-container img {
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.input-wrapper {
+  @apply w-full flex flex-col gap-2 mb-4;
+}
+
+label {
+  @apply text-gray-800 font-medium text-sm;
+}
+
+input, textarea, select {
+  @apply w-full px-3 py-3 rounded-lg bg-gray-800 border border-gray-200 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-200 text-white placeholder:text-gray-400 transition duration-300;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+select {
+  appearance: menulist;
+}
+
+button {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+button:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+</style>
