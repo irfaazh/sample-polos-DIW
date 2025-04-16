@@ -4,11 +4,8 @@
     <section class="container-section bg-gradient-to-b from-orange-50 to-orange-100 p-5 rounded-lg shadow-md mx-auto w-11/12 max-w-md">
       <!-- Header dengan ornamen -->
       <div class="text-center mb-6">
-        <!-- <div class="ornament-container mb-2">
-          <img src="/api/placeholder/64/40" alt="Ornament" class="w-16 mx-auto">
-        </div> -->
-        <h1 class="satisfy-font text-4xl font-medium mb-5 text-amber-600">Buku Tamu</h1>
-        <p class="text-sm text-gray-600 mt-2">Demi kelancaran acara dimohon untuk para tamu undangan untuk memastikan kehadirannya pada acara kami</p>
+        <h1 class="satisfy-font text-4xl font-medium mb-5 text-amber-800">Buku Tamu</h1>
+        <p class="text-sm text-amber-700 mt-2">Demi kelancaran acara dimohon untuk para tamu undangan untuk memastikan kehadirannya pada acara kami</p>
       </div>
       
       <!-- Form -->
@@ -43,7 +40,7 @@
         <!-- Submit Button -->
         <button 
           data-aos="zoom-in"
-          class="w-full bg-amber-800 text-orange-100 mt-6 rounded-lg py-3 font-medium cursor-pointer active:scale-95 hover:border hover:border-orange-500 hover:bg-orange-100 hover:text-green-500 duration-300" 
+          class="w-full bg-orange-800 text-orange-100 mt-6 rounded-lg py-3 font-medium cursor-pointer active:scale-95 hover:border hover:border-orange-500 hover:bg-orange-100 hover:text-amber-800 duration-300" 
           type="submit">
           <i class="fa fa-paper-plane mr-1"></i>
           Kirim pesan
@@ -134,18 +131,6 @@ onMounted(() => {
   max-width: 500px;
 }
 
-.ornament-container {
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ornament-container img {
-  max-height: 100%;
-  object-fit: contain;
-}
-
 .input-wrapper {
   @apply w-full flex flex-col gap-2 mb-4;
 }
@@ -155,7 +140,7 @@ label {
 }
 
 input, textarea, select {
-  @apply w-full px-3 py-3 rounded-lg bg-gray-800 border border-orange-200 shadow-md focus:outline-none focus:ring-2 focus:ring-orange-200 text-white placeholder:text-orange-400 transition duration-300;
+  @apply w-full px-3 py-3 rounded-lg bg-orange-800 border border-amber-600 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400 text-amber-100 placeholder:text-amber-50 transition duration-300;
 }
 
 textarea {

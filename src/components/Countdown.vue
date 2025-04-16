@@ -1,6 +1,6 @@
 <template>
   <div class="px-2 py-4">
-    <p class="mx-auto text-center text-sm text-gray-100 w-10/12 mb-2">
+    <p class="mx-auto text-center text-sm text-orange-50 w-10/12 mb-2">
       Menuju acara resepsi kami
     </p>
 
@@ -9,13 +9,13 @@
         <div 
           data-aos="zoom-in"
           class="text-center w-3/12">
-          <p class="text-3xl font-medium text-amber-500 mb-2">{{ value }}</p>
-          <p class="text-gray-100 text-sm font-medium">{{ name }}</p>
+          <p class="text-3xl font-medium text-amber-50 mb-2">{{ value }}</p>
+          <p class="text-orange-50 text-sm font-medium">{{ name }}</p>
         </div>
       </template>
     </section>
 
-    <div v-else class="text-center text-amber-500 text-lg font-semibold mt-4">
+    <div v-else class="text-center text-orange-50 text-lg font-semibold mt-4">
       Waktu resepsi telah tiba!
     </div>
   </div>

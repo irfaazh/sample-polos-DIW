@@ -1,7 +1,7 @@
 <template>
   <section class="w-full bg-gradient-to-b from-orange-50 to-orange-100 pt-12 pb-5">
     <section class="section-container">
-      <HeaderSection title="Amplop Digital" subtitle=" Doa restu anda merupakan karunia yang sangat berarti bagi kami dan jika memberi adalah ungkapan tanda terima kasih anda, anda dapat memberi kado secara cashless"></HeaderSection>
+      <HeaderSection text-color="text-amber-800" title="Amplop Digital" subtitle=" Doa restu anda merupakan karunia yang sangat berarti bagi kami dan jika memberi adalah ungkapan tanda terima kasih anda, anda dapat memberi kado secara cashless"></HeaderSection>
       <section class="">
 
         <template v-for="(wallet, x) in wallets" :key="x">

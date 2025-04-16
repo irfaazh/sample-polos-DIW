@@ -1,7 +1,7 @@
 <template>
   <section class="w-full bg-gradient-to-b from-orange-100 to-orange-50">
     <section class="container-section">
-      <HeaderSection title="Kisah Cinta Kami" />
+      <HeaderSection text-color="text-amber-800" title="Kisah Cinta Kami" />
       
       <div class="mt-8 px-4">
         <!-- Stories Bubbles -->
@@ -10,14 +10,14 @@
             <!-- Chat Bubble Item -->
             <div data-aos="fade-up" class="mb-16 relative">
               <!-- Title Pill at top -->
-              <div class="absolute -top-4 left-4 z-10 bg-orange-200 text-gray-800 text-sm font-semibold px-4 py-2 rounded-xl shadow-sm">
+              <div class="absolute -top-4 left-4 z-10 bg-amber-500 text-orange-50 text-sm font-semibold px-4 py-2 rounded-xl shadow-sm">
                 {{ story.title }}
               </div>
               
               <!-- Content Bubble -->
-              <div class="bg-orange-300 rounded-2xl p-6 pt-10 shadow-sm">
-                <p v-if="story.place" class="font-medium mb-3 text-center">{{ story.place }}</p>
-                <p class="text-gray-800 leading-relaxed text-justify text-sm">{{ story.description }}</p>
+              <div class="bg-amber-800 rounded-2xl p-6 pt-10 shadow-sm">
+                <p v-if="story.place" class="font-medium mb-3 text-center text-orange-50">{{ story.place }}</p>
+                <p class="text-orange-50 leading-relaxed text-justify text-sm">{{ story.description }}</p>
               </div>
             </div>
           </template>
