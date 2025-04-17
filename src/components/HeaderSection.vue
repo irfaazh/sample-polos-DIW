@@ -8,7 +8,7 @@
 
 <script setup>
 
-import decoration from '@/assets/svg/decoration-2.svg'
+// import decoration from '@/assets/svg/decoration-2.svg'
 
 const props = defineProps({
   title: {

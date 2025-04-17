@@ -50,7 +50,7 @@ import { ref, onMounted } from 'vue'
 import HeaderSection from '@/components/HeaderSection.vue'
 import Card from '@/components/Card.vue'
 import Countdown from '@/components/Countdown.vue'
-import decoration from '@/assets/svg/decoration-2.svg'
+// import decoration from '@/assets/svg/decoration-2.svg'
 
 const timelines = ref(null)
 onMounted(() => {

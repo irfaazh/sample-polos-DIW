@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-gray-50 p-4 md:p-8">
+    <div class="min-h-screen flex items-center justify-center bg-gradient-to-b from-gray-100 to-gray-100 p-4 md:p-8">
       <div class="relative max-w-2xl w-full bg-white rounded-xl shadow-lg overflow-hidden border border-amber-200">
         <!-- Decorative elements -->
         <div class="absolute -top-8 -left-8 w-16 h-16 bg-amber-50 rounded-full"></div>
