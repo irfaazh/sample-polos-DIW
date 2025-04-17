@@ -140,7 +140,7 @@ label {
 }
 
 input, textarea, select {
-  @apply w-full px-3 py-3 rounded-lg bg-orange-800 border border-amber-600 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-400 text-amber-100 placeholder:text-amber-50 transition duration-300;
+  @apply w-full px-3 py-3 rounded-lg bg-orange-800 border border-amber-600 shadow-md focus:outline-none focus:ring-2 focus:ring-amber-50 text-amber-50 placeholder:text-amber-50 transition duration-300;
 }
 
 textarea {

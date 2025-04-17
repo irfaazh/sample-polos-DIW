@@ -7,8 +7,8 @@
         <h1 class="tangerine-font text-title font-bold">{{ couples.join(' & ') }}</h1>
         <decoration class="fill-amber-400 mx-auto w-3/12 mb-3"></decoration>
         <p class="text-sm">
-          <p class="font-medium">Kepada Bapak/Ibu Yang Terhormat</p>
-          <p class="font-medium my-2 text-lg">{{ query.to }}</p>
+          <p class="font-medium">Kepada Bapak/Ibu/Saudara/i Yang Terhormat</p>
+          <GuestLinkEditor />
           <small>Izinkan kami turut mengundang anda dalam acara kami</small>
         </p>
       </div>
@@ -21,6 +21,7 @@
 import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import decoration from '@/assets/svg/decoration-2.svg'
+import GuestLinkEditor from './GuestLinkEditor.vue'
 
 const couples = ['Akmal', 'Reva']
 
