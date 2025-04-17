@@ -1,6 +1,7 @@
 <template>
   <section>
     <MainCover id="mainCover"></MainCover>
+    <Qoutes id="quotes"></Qoutes>
     <GroomBride></GroomBride>
     <Timelines v-on:goToGuestBook="navigationHandler('#guest-book')"></Timelines>
     <OurGallery></OurGallery>
@@ -19,6 +20,7 @@ import OurGallery from '@/components/OurGallery.vue'
 import Envelope from '@/components/Envelope.vue'
 import GuestBook from '@/components/GuestBook.vue'
 import End from '@/components/End.vue'
+import Qoutes from '@/components/Qoutes.vue'
 
 // Navigation handler
 const navigationHandler = id => {

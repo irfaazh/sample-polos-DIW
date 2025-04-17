@@ -44,9 +44,9 @@
         </div>
       </div>
       
-      <!-- Button to open generator -->
+      <!-- Button to open generator - hanya muncul jika tidak ada parameter 'to' di URL -->
       <button 
-        v-if="!showLinkGenerator" 
+        v-if="!showLinkGenerator && !hasGuestParameter" 
         @click="showLinkGenerator = true"
         class="fixed bottom-5 right-5 bg-orange-500 text-white p-3 rounded-full shadow-lg z-10 hover:bg-orange-600">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -56,7 +56,7 @@
       
       <!-- Undangan Content -->
       <div 
-        class="animate__animated animate__fadeInUpBig text-gray-100 text-center bg-orange-100 bg-opacity-50 backdrop-blur-sm rounded-t-3xl px-6 py-10">
+        class="animate__animated animate__fadeInUpBig text-gray-100 text-center bg-amber-700 bg-opacity-50 backdrop-blur-sm rounded-t-3xl px-6 py-10">
         <p>Pernikahan</p>
         <h1 class="tangerine-font text-title font-bold">{{ couples.join(' & ') }}</h1>
         <decoration class="fill-amber-400 mx-auto w-3/12 mb-3"></decoration>
@@ -78,6 +78,9 @@ import decoration from '@/assets/svg/decoration-2.svg'
 const couples = ['Akmal', 'Reva']
 const route = useRoute()
 let query = computed(() => route.query)
+
+// Cek apakah ada parameter 'to' di URL
+const hasGuestParameter = computed(() => route.query.to !== undefined && route.query.to !== 'Saudara/i')
 
 if (route.query.to === undefined) query = { to: 'Saudara/i' }
 
