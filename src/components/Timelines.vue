@@ -36,7 +36,7 @@
                 Konfirmasi
               </button>
             </div>
-            <img src="@/assets/images/couples.png" alt="">
+           
           </section>
         </template>
       </Card>

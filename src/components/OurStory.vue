@@ -21,11 +21,6 @@
               </div>
             </div>
           </template>
-          
-          <!-- Footer Image -->
-          <div class="flex justify-center mt-12 mb-8">
-            <img src="@/assets/images/couples.png" alt="Couple" class="w-48 opacity-90" />
-          </div>
         </div>
       </div>
     </section>

@@ -59,74 +59,59 @@ import { useRoute } from 'vue-router'
 import Alert from '@/components/Alert.vue'
 import MessagesBox from '@/components/MessagesBox.vue'
 
-// Form handler
+const scriptURL = "https://script.google.com/macros/s/AKfycbzrE11My5dfOO7WwjwMbyjMsVuyo1osZa8vYiFJxP16CyMNXEZNjVjkqmq8YGRpUt8v/exec"
+
+// Form refs
 const form = ref(null)
 const GuestName = ref('')
 const GuestMessage = ref('')
 const GuestStatus = ref('Hadir')
 
-// Alert handler
+// Alert state
 const statusResponse = ref(false)
 const showAlert = ref(false)
 
 // Messages data
 const messages = ref([])
 
-// Google Script URL
-const scriptURL = "https://script.google.com/macros/s/AKfycbzrE11My5dfOO7WwjwMbyjMsVuyo1osZa8vYiFJxP16CyMNXEZNjVjkqmq8YGRpUt8v/exec"
-
-// Send message function
-const sendMessage = (evt) => {
+// Form submission
+const sendMessage = async (evt) => {
   evt.preventDefault()
   
-  setTimeout(() => {
-    // Post form
-    fetch(scriptURL, { method: 'POST', body: new FormData(form.value)})
-      .then(res => {
-        console.log('Success: ', res)
-        statusResponse.value = true
-        showAlert.value = true
-        // Refresh messages after successful submission
-        fetchMessages()
-        // Reset form
-        GuestName.value = ''
-        GuestMessage.value = ''
-        GuestStatus.value = 'Hadir'
-      })
-      .catch(err => {
-        console.log('Error: ', err)
-        statusResponse.value = false
-        showAlert.value = true
-      })
-  }, 500)
+  try {
+    const res = await fetch(scriptURL, { method: 'POST', body: new FormData(form.value) })
+    statusResponse.value = true
+    showAlert.value = true
+    await fetchMessages()
+    GuestName.value = ''
+    GuestMessage.value = ''
+    GuestStatus.value = 'Hadir'
+  } catch (err) {
+    console.error('Error:', err)
+    statusResponse.value = false
+    showAlert.value = true
+  }
 }
 
-// Fetch messages function
+// Fetch messages
 const fetchMessages = async () => {
   try {
     const res = await fetch(scriptURL)
-    const data = await res.json()
-    messages.value = data.reverse() // Display newest first
+    messages.value = (await res.json()).reverse()
   } catch (error) {
     console.error('Error fetching messages:', error)
   }
 }
 
-// Auto fill guest name with route.query
+// Auto-fill guest name from URL
 const route = useRoute()
 if (route.query.to) GuestName.value = route.query.to
 
-// Fetch messages on component mount
-onMounted(() => {
-  fetchMessages()
-})
+// Initial fetch
+onMounted(fetchMessages)
 </script>
 
 <style scoped>
-.font-script {
-  font-family: 'Playfair Display', serif;
-}
-
 .container-section {
   max-width: 500px;
 }
@@ -146,10 +131,6 @@ input, textarea, select {
 textarea {
   min-height: 100px;
   resize: vertical;
-}
-
-select {
-  appearance: menulist;
 }
 
 button {

@@ -44,7 +44,7 @@
         </div>
       </div>
       
-      <!-- Button to open generator - hanya muncul jika tidak ada parameter 'to' di URL -->
+      <!-- Button to open generator -->
       <button 
         v-if="!showLinkGenerator && !hasGuestParameter" 
         @click="showLinkGenerator = true"
@@ -77,12 +77,8 @@ import decoration from '@/assets/svg/decoration-2.svg'
 
 const couples = ['Akmal', 'Reva']
 const route = useRoute()
-let query = computed(() => route.query)
-
-// Cek apakah ada parameter 'to' di URL
-const hasGuestParameter = computed(() => route.query.to !== undefined && route.query.to !== 'Saudara/i')
-
-if (route.query.to === undefined) query = { to: 'Saudara/i' }
+const query = computed(() => route.query.to ? route.query : { to: 'Saudara/i' })
+const hasGuestParameter = computed(() => route.query.to && route.query.to !== 'Saudara/i')
 
 // Link generator functionality
 const showLinkGenerator = ref(false)
@@ -94,17 +90,14 @@ const generateLink = () => {
   if (!guestName.value.trim()) return
   
   const baseUrl = window.location.origin + window.location.pathname
-  const encodedName = encodeURIComponent(guestName.value.trim())
-  generatedLink.value = `${baseUrl}?to=${encodedName}`
+  generatedLink.value = `${baseUrl}?to=${encodeURIComponent(guestName.value.trim())}`
 }
 
 const copyToClipboard = () => {
   navigator.clipboard.writeText(generatedLink.value)
     .then(() => {
       copySuccess.value = true
-      setTimeout(() => {
-        copySuccess.value = false
-      }, 2000)
+      setTimeout(() => copySuccess.value = false, 2000)
     })
 }
 </script>

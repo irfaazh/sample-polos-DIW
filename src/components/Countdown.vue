@@ -74,7 +74,3 @@ onUnmounted(() => {
   if (timer) clearInterval(timer)
 })
 </script>
-
-<style scoped>
-/* Optional: kamu bisa tambahkan styling di sini jika perlu */
-</style>
