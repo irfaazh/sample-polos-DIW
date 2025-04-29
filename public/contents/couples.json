@@ -3,18 +3,16 @@
 		{
 			"name": "Moch. Akmal Abdullah",
 			"sosmed": [
-				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/aabduulllaaahh" }
+				{ "icon": "fab fa-instagram", "link": "" }
 			],
-			"parents": ["Ihak Syarifudin", "Rika Solaeha"],
-			"thumb": "/couples/couple-male.jpg"
+			"parents": ["fulan", "fulanah"]
 		},
 		{
 			"name": "Reva Hamidah",
 			"sosmed": [
-				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/haimidah22" }
+				{ "icon": "fab fa-instagram", "link": "" }
 			],
-			"parents": ["Alm. Ngaspan", "Alis Farida"],
-			"thumb": "/couples/couple-female.jpg"
+			"parents": ["fulan", "fulanah"]
 		}
 	]
 }

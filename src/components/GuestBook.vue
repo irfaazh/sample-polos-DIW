@@ -59,7 +59,7 @@ import { useRoute } from 'vue-router'
 import Alert from '@/components/Alert.vue'
 import MessagesBox from '@/components/MessagesBox.vue'
 
-const scriptURL = "https://script.google.com/macros/s/AKfycbzrE11My5dfOO7WwjwMbyjMsVuyo1osZa8vYiFJxP16CyMNXEZNjVjkqmq8YGRpUt8v/exec"
+// const scriptURL = "https://script.google.com/macros/s/AKfycbzrE11My5dfOO7WwjwMbyjMsVuyo1osZa8vYiFJxP16CyMNXEZNjVjkqmq8YGRpUt8v/exec"
 
 // Form refs
 const form = ref(null)
