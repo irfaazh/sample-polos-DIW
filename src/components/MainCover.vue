@@ -75,7 +75,7 @@ import { ref, computed } from 'vue'
 import { useRoute } from 'vue-router'
 // import decoration from '@/assets/svg/decoration-2.svg'
 
-const couples = ['Akmal', 'Reva']
+const couples = ['Fulan', 'Fulanah']
 const route = useRoute()
 const query = computed(() => route.query.to ? route.query : { to: 'Saudara/i' })
 const hasGuestParameter = computed(() => route.query.to && route.query.to !== 'Saudara/i')

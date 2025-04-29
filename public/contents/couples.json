@@ -1,16 +1,16 @@
 {
 	"couples": [
 		{
-			"name": "Moch. Akmal Abdullah",
+			"name": "Fulan",
 			"sosmed": [
-				{ "icon": "fab fa-instagram", "link": "" }
+				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/diw.project" }
 			],
 			"parents": ["fulan", "fulanah"]
 		},
 		{
-			"name": "Reva Hamidah",
+			"name": "Fulanah",
 			"sosmed": [
-				{ "icon": "fab fa-instagram", "link": "" }
+				{ "icon": "fab fa-instagram", "link": "https://www.instagram.com/diw.project" }
 			],
 			"parents": ["fulan", "fulanah"]
 		}
