@@ -1,5 +1,5 @@
 <template>
-  <section class="w-full bg-gradient-to-b from-orange-100 to-orange-50">
+  <section class="w-full bg-gradient-to-b from-orange-100 to-orange-50 py-8">
     <section class="container-section">
       <HeaderSection text-color="text-amber-800" title="Kisah Cinta Kami" />
       

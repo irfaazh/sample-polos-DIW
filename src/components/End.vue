@@ -8,7 +8,7 @@
     </p>
     <p class="text-lg italic mb-2 font-medium text-amber-700">Wassalamu'alaikum Wr. Wb.</p>
     <p class="text-lg italic mb-6 font-medium text-amber-700">Jazakumullahu Khairan</p>
-    <h2 class="text-2xl font-bold couple-names text-amber-700">Akmal & Reva</h2>
+    <h2 class="text-2xl font-bold couple-names text-amber-700">Fulan & Fulanah</h2>
   </section>
 </template>
   
